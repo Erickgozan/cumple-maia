@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cumpleaños & Bautizo - Maia Zaelin</title>
+    <!-- Fuentes Google: Poppins y Great Vibes para toques elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome para íconos minimalistas -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --azul-celeste: #a8d8ea;
+        --azul-stitch: #4a90e2;
+        --rosa-pastel: #faa2c1;
+        --blanco: #ffffff;
+        --gris-claro: #f8f9fa;
+        --gris-texto: #4a5568;
+        --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.05);
+        --borde-radio: 20px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--gris-claro);
+        color: var(--gris-texto);
+        overflow-x: hidden;
+      }
+
+      /* Utilidades de animación scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- Hero Section --- */
+      .hero {
+        min-height: 100vh;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(168, 216, 234, 0.4) 0%,
+            rgba(250, 162, 193, 0.2) 100%
+          ),
+          url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80")
+            center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(4px);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
+
+      /* Stitch Badge Transparente */
+      .stitch-badge {
+        background: transparent; /* Fondo transparente */
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        box-shadow: none; /* Sin sombra */
+        border: none; /* Sin borde */
+      }
+
+      .stitch-badge img {
+        width: 120px; /* Ajuste opcional para un tamaño óptimo */
+        height: auto;
+        object-fit: contain;
+      }
+
+      .subtitle-tag {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.85rem;
+        color: var(--azul-stitch);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .main-title {
+        font-size: 2.8rem;
+        color: #2d3748;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .main-title span {
+        color: var(--rosa-pastel);
+        font-family: "Great Vibes", cursive;
+        font-size: 3.8rem;
+        display: block;
+        margin-top: 0.2rem;
+        font-weight: 400;
+      }
+
+      .event-date-badge {
+        display: inline-block;
+        background-color: var(--blanco);
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        box-shadow: var(--sombra-suave);
+        font-weight: 500;
+        color: var(--gris-texto);
+        margin-top: 1rem;
+        border-left: 4px solid var(--rosa-pastel);
+      }
+
+      /* --- Mensaje Central --- */
+      .message-section {
+        padding: 5rem 2rem;
+        text-align: center;
+        background: var(--blanco);
+      }
+
+      .script-quote {
+        font-family: "Great Vibes", cursive;
+        font-size: 2.5rem;
+        color: var(--azul-stitch);
+        margin-bottom: 1rem;
+      }
+
+      .message-text {
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #718096;
+      }
+
+      /* --- Carrusel de Fotos --- */
+      .carousel-section {
+        padding: 4rem 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .carousel-container {
+        position: relative;
+        border-radius: var(--borde-radio);
+        overflow: hidden;
+        box-shadow: var(--sombra-suave);
+        background: var(--blanco);
+      }
+
+      .carousel-slide {
+        display: none;
+        position: relative;
+      }
+
+      .carousel-slide.active {
+        display: block;
+        animation: fadeIn 0.8s ease;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+      }
+
+      .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+        color: white;
+        padding: 2rem 1.5rem 1rem;
+        text-align: center;
+      }
+
+      .carousel-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        padding: 0 1rem;
+      }
+
+      .nav-btn {
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--gris-texto);
+        transition: all 0.3s;
+      }
+
+      .nav-btn:hover {
+        background: var(--blanco);
+        transform: scale(1.1);
+      }
+
+      /* --- Direcciones (Tarjetas) --- */
+      .locations-section {
+        padding: 4rem 2rem;
+        background: linear-gradient(
+          180deg,
+          var(--gris-claro) 0%,
+          rgba(168, 216, 234, 0.2) 100%
+        );
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+        color: #2d3748;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .location-card {
+        background: var(--blanco);
+        padding: 2.5rem 2rem;
+        border-radius: var(--borde-radio);
+        box-shadow: var(--sombra-suave);
+        text-align: center;
+        position: relative;
+        transition: transform 0.3s ease;
+        border-top: 5px solid var(--azul-celeste);
+      }
+
+      .location-card.salon {
+        border-top-color: var(--rosa-pastel);
+      }
+
+      .location-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .card-icon {
+        font-size: 2.5rem;
+        color: var(--azul-stitch);
+        margin-bottom: 1rem;
+      }
+
+      .location-card.salon .card-icon {
+        color: var(--rosa-pastel);
+      }
+
+      .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-info {
+        color: #718096;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--azul-celeste);
+        color: var(--azul-stitch);
+      }
+
+      .btn-outline:hover {
+        background: var(--azul-celeste);
+        color: var(--blanco);
+      }
+
+      /* --- Padrinos --- */
+      .padrinos-section {
+        padding: 4rem 2rem;
+        background: var(--blanco);
+        text-align: center;
+      }
+
+      .padrinos-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 800px;
+        margin: 2rem auto 0;
+      }
+
+      .padrino-item {
+        background: var(--gris-claro);
+        padding: 1.5rem 2rem;
+        border-radius: 15px;
+        width: 250px;
+        box-shadow: var(--sombra-suave);
+      }
+
+      .padrino-role {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--rosa-pastel);
+        font-weight: 600;
+      }
+
+      .padrino-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-top: 0.3rem;
+        color: #2d3748;
+      }
+
+      /* --- Mesa de Regalos --- */
+      .gifts-section {
+        padding: 4rem 2rem;
+        text-align: center;
+        background: var(--gris-claro);
+      }
+
+      .gift-options {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .gift-card {
+        background: var(--blanco);
+        padding: 2rem;
+        border-radius: var(--borde-radio);
+        width: 260px;
+        box-shadow: var(--sombra-suave);
+        transition: transform 0.3s;
+      }
+
+      .gift-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .gift-icon {
+        font-size: 2rem;
+        color: var(--azul-celeste);
+        margin-bottom: 1rem;
+      }
+
+      /* --- RSVP --- */
+      .rsvp-section {
+        padding: 5rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--azul-celeste) 0%,
+          var(--rosa-pastel) 100%
+        );
+        color: var(--blanco);
+        text-align: center;
+      }
+
+      .rsvp-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .btn-whatsapp {
+        background: #25d366;
+        color: white;
+        font-size: 1.1rem;
+        padding: 1rem 2.5rem;
+        margin-top: 1.5rem;
+        box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .btn-whatsapp:hover {
+        background: #1eb954;
+        transform: scale(1.05);
+      }
+
+      /* --- Footer --- */
+      footer {
+        padding: 2rem;
+        text-align: center;
+        background: #1a202c;
+        color: #a0aec0;
+        font-size: 0.85rem;
+      }
+
+      /* Animaciones */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 2.2rem;
+        }
+        .main-title span {
+          font-size: 3rem;
+        }
+        .carousel-slide img {
+          height: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Portada Inicial -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal active">
+        <!-- Imagen Stitch con fondo trasparente -->
+        <div class="stitch-badge">
+          <img src="imagenes/stich-angel3.png" alt="Stitch y Angel" />
+        </div>
+        <p class="subtitle-tag">¡Celebra con nosotros!</p>
+        <h1 class="main-title">
+          Mi Cumpleaños & Bautizo
+          <span>Maia Zaelin González Media</span>
+        </h1>
+        <div class="event-date-badge">
+          <i
+            class="fa-regular fa-calendar-check"
+            style="margin-right: 8px; color: var(--rosa-pastel)"
+          ></i>
+          Sábado, 18 de Noviembre de 2026
+        </div>
+      </div>
+    </section>
+
+    <!-- Mensaje Principal -->
+    <section class="message-section">
+      <div class="reveal">
+        <p class="script-quote">
+          "Ohana significa familia, y la familia nunca se olvida..."
+        </p>
+        <h2 class="message-text">
+          Te invitamos a celebrar con nosotros este día tan especial. Un momento
+          lleno de fe, amor y la alegría de celebrar el primer añito de nuestra
+          pequeña Maia.
+        </h2>
+      </div>
+    </section>
+
+    <!-- Slide de Fotos / Carrusel -->
+    <section class="carousel-section reveal">
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="imagenes/maia-4.jpg" alt="Maia Foto 1" />
+          <div class="carousel-caption">
+            <p>Un año lleno de risas y momentos inolvidables</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/maia-2.jpg" alt="Maia Foto 2" />
+          <div class="carousel-caption">
+            <p>Creciendo rodeada de amor y bendiciones</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/maia-3.jpg" alt="Maia Foto 3" />
+          <div class="carousel-caption">
+            <p>¡Acompáñanos a hacer este día mágico!</p>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="nav-btn" onclick="moveSlide(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="nav-btn" onclick="moveSlide(1)">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direcciones / Ubicaciones -->
+    <section class="locations-section">
+      <div class="section-header reveal">
+        <p class="subtitle-tag">¿Dónde & Cuándo?</p>
+        <h2>Ubicaciones del Evento</h2>
+      </div>
+      <div class="cards-grid">
+        <!-- Misa -->
+        <div class="location-card reveal">
+          <div class="card-icon"><i class="fa-solid fa-church"></i></div>
+          <h3 class="card-title">Misa de Bautizo</h3>
+          <p class="card-info">
+            <strong>Parroquia Sagrado Corazón</strong><br />
+            Av. Principal #123, Col. Centro<br />
+            <i class="fa-regular fa-clock" style="margin-top: 8px"></i> 12:00 PM
+          </p>
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            class="btn btn-outline"
+            >Ver en Google Maps</a
+          >
+        </div>
+        <!-- Salón -->
+        <div class="location-card salon reveal">
+          <div class="card-icon"><i class="fa-solid fa-cake-candles"></i></div>
+          <h3 class="card-title">Recepción</h3>
+          <p class="card-info">
+            <strong>Salón de Eventos "Aloha"</strong><br />
+            Calle Jardín de las Flores #456<br />
+            <i class="fa-regular fa-clock" style="margin-top: 8px"></i> 02:30 PM
+          </p>
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            class="btn btn-outline"
+            style="border-color: var(--rosa-pastel); color: var(--rosa-pastel)"
+            >Ver en Google Maps</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Padrinos -->
+    <section class="padrinos-section reveal">
+      <div class="section-header">
+        <p class="subtitle-tag">Guías de amor y fe</p>
+        <h2>Mis Padrinos</h2>
+      </div>
+      <div class="padrinos-grid">
+        <div class="padrino-item">
+          <p class="padrino-role">Padrino de Bautizo</p>
+          <p class="padrino-name">Carlos González</p>
+        </div>
+        <div class="padrino-item">
+          <p class="padrino-role">Madrina de Bautizo</p>
+          <p class="padrino-name">Ana Lucía Mendoza</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mesa de Regalos -->
+    <section class="gifts-section reveal">
+      <div class="section-header">
+        <p class="subtitle-tag">Sugerencias</p>
+        <h2>Mesa de Regalos</h2>
+        <p style="color: #718096; max-width: 500px; margin: 0.5rem auto 0">
+          Tu presencia es nuestro mejor regalo, pero si deseas hacerme un
+          detalle:
+        </p>
+      </div>
+      <div class="gift-options">
+        <div class="gift-card">
+          <div class="gift-icon"><i class="fa-solid fa-gift"></i></div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem">Liverpool</h3>
+          <p style="font-size: 0.85rem; color: #718096; margin-bottom: 1rem">
+            Evento N° 12345678
+          </p>
+          <a
+            href="#"
+            target="_blank"
+            class="btn btn-outline"
+            style="font-size: 0.8rem; padding: 0.5rem 1rem"
+            >Ir a la Tienda</a
+          >
+        </div>
+        <div class="gift-card">
+          <div class="gift-icon">
+            <i class="fa-solid fa-envelope-open-text"></i>
+          </div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem">
+            Lluvia de Sobres
+          </h3>
+          <p style="font-size: 0.85rem; color: #718096">
+            Buzón especial disponible el día del evento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Confirmación RSVP -->
+    <section class="rsvp-section">
+      <div class="rsvp-content reveal">
+        <i
+          class="fa-solid fa-heart"
+          style="font-size: 2.5rem; margin-bottom: 1rem"
+        ></i>
+        <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem">
+          ¿Nos Acompañas?
+        </h2>
+        <p style="font-size: 1.05rem; opacity: 0.9">
+          Por favor confirma tu asistencia antes del 1 de Noviembre para
+          preparar todo con cariño.
+        </p>
+
+        <a id="rsvpBtn" href="#" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Confirmar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>Celebración de Maia Zaelin González Media • 2026</p>
+    </footer>
+
+    <!-- JavaScript para Interactividad -->
+    <script>
+      // 1. WhatsApp RSVN dinámico
+      const telefonoWhatsApp = "5215512345678"; // Reemplazar por tu número real
+      const mensajeRSVP = encodeURIComponent(
+        "¡Hola! Confirmo con mucho gusto mi asistencia al cumpleaños y bautizo de Maia Zaelin 🐾💖.",
+      );
+      document.getElementById("rsvpBtn").href =
+        `https://wa.me/${telefonoWhatsApp}?text=${mensajeRSVP}`;
+
+      // 2. Carrusel de Fotos
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".carousel-slide");
+
+      function showSlide(index) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        if (index >= slides.length) currentSlide = 0;
+        if (index < 0) currentSlide = slides.length - 1;
+        slides[currentSlide].classList.add("active");
+      }
+
+      function moveSlide(step) {
+        currentSlide += step;
+        showSlide(currentSlide);
+      }
+
+      // Auto-play del carrusel cada 4 segundos
+      setInterval(() => {
+        currentSlide++;
+        showSlide(currentSlide);
+      }, 4000);
+
+      // 3. Animaciones al hacer Scroll (Reveal Effect)
+      window.addEventListener("scroll", revealOnScroll);
+
+      function revealOnScroll() {
+        const reveals = document.querySelectorAll(".reveal");
+        for (let i = 0; i < reveals.length; i++) {
+          const windowHeight = window.innerHeight;
+          const elementTop = reveals[i].getBoundingClientRect().top;
+          const elementVisible = 100;
+
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+
+      // Ejecutar una vez para mostrar elementos visibles desde el inicio
+      revealOnScroll();
+    </script>
+  </body>
+</html>
