@@ -2,25 +2,15 @@
 <html lang="es">
   <head>
     <meta property="og:title" content="Tienes una invitación 💌" />
-    <meta
-property="og:description"
-content="Haz clic para abrir tu invitación"
-    />
+    <meta property="og:description" content="Haz clic para abrir tu invitación"/>
     <!-- URL raw directa de la imagen -->
-    <meta
-property="og:image"
-content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/invitacion.jpg"
-    />
+    <meta property="og:image" content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/invitacion.jpg"/>
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
-    <meta
-     property="og:url"
-     content="https://erickgozan.github.io/cumple-maia/"
-    />
+    <meta property="og:url" content="https://erickgozan.github.io/cumple-maia/"/>
     <meta property="og:type" content="website" />
     <meta charset="UTF-8" />
-    |
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cumpleaños & Bautizo - Maia Zaelin</title>
     <!-- Fuentes Google: Poppins y Great Vibes para toques elegantes -->
@@ -123,7 +113,7 @@ content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/
             <strong>Parroquia de Nuestra Señora de Guadalupe</strong><br />
             Av. Gobernadora Prof. Carlos Hank González s/n, Granjas Valle de
            Guadalupe, 55270 Ecatepec de Morelos, Méx.<br />
-            <i class="fa-regular fa-clock" style="margin-top: 8px"></i> 12:00 PM
+            <i class="fa-regular fa-clock" style="margin-top: 8px"></i> 2:00 PM
           </p>
           <a
             href="https://maps.app.goo.gl/LpfsPpdXP7qFqhxK9"
@@ -139,7 +129,7 @@ content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/
           <p class="card-info">
             <strong>Salón de Eventos "Los Girasoles"</strong><br />
             México 8-MZ 015, El Chamizal, 55270 Ecatepec de Morelos, Méx.<br />
-            <i class="fa-regular fa-clock" style="margin-top: 8px"></i> 02:30 PM
+            <i class="fa-regular fa-clock" style="margin-top: 8px"></i> 3:00 PM
           </p>
           <a
             href="https://maps.app.goo.gl/yRsgwu3qnDe6dabdA"
@@ -152,10 +142,26 @@ content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/
       </div>
     </section>
 
+     <!-- Papas -->
+    <section class="padrinos-section reveal" style="background-color: #F8F0FA">
+      <div class="section-header">
+        <h2>Mis Papás</h2>
+      </div>
+      <div class="padrinos-grid">
+        <div class="padrino-item">
+          <p class="padrino-role">Mamá</p>
+          <p class="padrino-name">Pamela Michell Medina Huexoyuca</p>
+        </div>
+        <div class="padrino-item">
+          <p class="padrino-role">Papá</p>
+          <p class="padrino-name">Erick Antonio Gonzalez Flores</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Padrinos -->
     <section class="padrinos-section reveal">
       <div class="section-header">
-        <p class="subtitle-tag">Guías de amor y fe</p>
         <h2>Mis Padrinos</h2>
       </div>
       <div class="padrinos-grid">
@@ -165,7 +171,7 @@ content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/
         </div>
         <div class="padrino-item">
           <p class="padrino-role">Madrina de Bautizo</p>
-          <p class="padrino-name">Leslye Ana-y Gonzalez Flores</p>
+          <p class="padrino-name">Leslye Ana-hy Gonzalez Flores</p>
         </div>
       </div>
     </section>
@@ -196,23 +202,13 @@ content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/
             >Ir a la Tienda</a
           >
         </div>
-        <div class="gift-card">
-          <div class="gift-icon">
-            <i class="fa-solid fa-envelope-open-text"></i>
-          </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem">
-            Lluvia de Sobres
-          </h3>
-          <p style="font-size: 0.85rem; color: #718096">
-            Buzón especial disponible el día del evento.
-          </p>
-        </div>
       </div>
     </section>
 
     <!-- Confirmación RSVP -->
     <section class="rsvp-section">
       <div class="rsvp-content reveal">
+         <div class="rsvp-content reveal">
         <i
           class="fa-solid fa-heart"
           style="font-size: 2.5rem; margin-bottom: 1rem"
@@ -221,13 +217,28 @@ content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/
           ¿Nos Acompañas?
         </h2>
         <p style="font-size: 1.05rem; opacity: 0.9">
-          Por favor confirma tu asistencia antes del 1 de Noviembre para
+          Por favor confirma tu asistencia antes del 20 de octubre para
           preparar todo con cariño.
         </p>
+        
+        <form id="form-whatsapp" style="display: flex; flex-direction: column; gap: 15px; margin: 25px 0;">
+          <!-- Nombre de la Familia -->
+          <input type="text" id="nombre-familia" placeholder="Nombre de la familia" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem; width: 59%; margin-left: 5rem;" />
+          <!-- Asistentes divididos -->
+          <div class="fila-formulario">
+  <div class="campo">
+    <input type="number" id="adultos" name="adultos"  id="adultos" placeholder="Adultos" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;">
+  </div>
+  <div class="campo seccion-ninos">
+    <input type="number" id="ninos" name="ninos" placeholder="Número de niños" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;">
+  </div>
+</div>          
+          <!-- Botón de WhatsApp integrado al formulario para validar campos -->
+          <button type="submit" class="btn btn-whatsapp" style="border: none; cursor: pointer; width: 100%; justify-content: center; font-family: 'Poppins', sans-serif;">
+            <i class="fa-brands fa-whatsapp"></i> Confirmar por WhatsApp
+          </button>
+        </form>
 
-        <a id="rsvpBtn" href="#" target="_blank" class="btn btn-whatsapp">
-          <i class="fa-brands fa-whatsapp"></i> Confirmar por WhatsApp
-        </a>
       </div>
     </section>
 
@@ -237,13 +248,24 @@ content="https://raw.githubusercontent.com/Erickgozan/cumple-maia/main/imagenes/
 
     <!-- JavaScript para Interactividad -->
     <script>
-      // 1. WhatsApp RSVN dinámico
+      // 1. WhatsApp RSVP dinámico vinculado al formulario
+      const formWhatsApp = document.getElementById("form-whatsapp");
       const telefonoWhatsApp = "5583888358"; // Reemplazar por tu número real
-      const mensajeRSVP = encodeURIComponent(
-        "¡Hola! Confirmo con mucho gusto mi asistencia al cumpleaños y bautizo de Maia Zaelin 🐾💖.",
-      );
-      document.getElementById("rsvpBtn").href =
-        `https://wa.me/${telefonoWhatsApp}?text=${mensajeRSVP}`;
+
+      formWhatsApp.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const familia = document.getElementById("nombre-familia").value;
+        const adultos = document.getElementById("adultos").value;
+        const ninos = document.getElementById("ninos").value;
+
+        let texto = `¡Hola! Confirmo con mucho gusto la asistencia de la familia ${familia} al cumpleaños y bautizo de Maia Zaelin 🐾💖.\n\n`;
+        texto += `Adultos: ${adultos}\n`;
+        texto += `Niños: ${ninos}`;
+        
+        const mensajeRSVP = encodeURIComponent(texto);
+        window.open(`https://wa.me/${telefonoWhatsApp}?text=${mensajeRSVP}`, "_blank");
+      });
 
       // 2. Carrusel de Fotos
       let currentSlide = 0;
