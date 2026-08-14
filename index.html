@@ -223,17 +223,18 @@
         
   <form id="form-whatsapp" style="display: flex; flex-direction: column; gap: 15px; margin: 25px 0;">
           <!-- Nombre de la Familia -->
-  <div class="fila-formulario">
-    <div class="campo">
-          <input type="text" id="nombre-familia" placeholder="Nombre de la familia" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;" />
-</div>
-          <!-- Asistentes divididos -->
-  <div class="campo">
-    <input type="number" id="adultos" name="adultos"  id="adultos" placeholder="Adultos" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;">
+      <div class="fila-formulario">
+        <div class="campo">
+              <input type="text" id="nombre-familia" placeholder="Nombre de la familia" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;" />
+    </div>
+              <!-- Asistentes divididos -->
+      <div class="campo">
+        <input type="number" id="adultos" name="adultos"  id="adultos" placeholder="Número de adultos" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;">
+      </div>
+      <div class="campo seccion-ninos">
+        <input type="number" id="ninos" name="ninos" placeholder="Número de niños" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;">
   </div>
-  <div class="campo seccion-ninos">
-    <input type="number" id="ninos" name="ninos" placeholder="Número de niños" required style="padding: 12px 15px; border-radius: 10px; border: none; outline: none; font-family: 'Poppins', sans-serif; font-size: 1rem;">
-  </div>
+  
 </div>          
           <!-- Botón de WhatsApp integrado al formulario para validar campos -->
           <button type="submit" class="btn btn-whatsapp" style="border: none; cursor: pointer; width: 100%; justify-content: center; font-family: 'Poppins', sans-serif;">
@@ -261,7 +262,7 @@
         const adultos = document.getElementById("adultos").value;
         const ninos = document.getElementById("ninos").value;
 
-        let texto = `¡Hola! Confirmo con mucho gusto la asistencia de la familia ${familia} al cumpleaños y bautizo de Maia Zaelin 🐾💖.\n\n`;
+        let texto = `¡Hola! Confirmo con mucho gusto la asistencia de la familia ${familia} al cumpleaños y bautizo de Maia Zaelin.\n\n`;
         texto += `Adultos: ${adultos}\n`;
         texto += `Niños: ${ninos}`;
         
